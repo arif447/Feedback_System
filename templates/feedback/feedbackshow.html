@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title_block %}
+    feedback show
+{% endblock %}
+{% block css_block %}
+     <style>
+
+        .colorfortable{
+            background-color: #E8F9FD
+        }
+        .headfortable{
+            border-radius: 50px;
+        }
+        .containerfortable {
+        padding-left: 5%;
+        padding-right: 5%;
+
+        }
+    </style>
+
+{% endblock %}
+{% block body_block %}
+      <div class="table-responsive containerfortable">
+    <table class="table table-borderless">
+        <thead class="colorfortable">
+            <tr>
+                  <th scope="col">Username</th>
+                  <th scope="col">Feedback</th>
+                  <th scope="col">Create_at</th>
+                  <th scope="col">Update_at</th>
+                  <th scope="col">Replay</th>
+                  <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for feedback in feedback %}
+            <tr>
+                <td>{{ feedback.user }}</td>
+                <td>{{ feedback.feedback }}</td>
+                <td>{{ feedback.created_at }}</td>
+                <td>{{ feedback.updated_at }}</td>
+                <td>{{ feedback.feedback_reply}}</td>
+                <td><a class="btn btn-primary" href="{% url 'App_Feedback:Replayfeedback' id=feedback.id %}">Replay</a></td>
+            </tr>
+        {% endfor %}
+          </tbody>
+        </table>
+
+    </table>
+    </div>
+
+{% endblock %}

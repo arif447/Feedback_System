@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}
+    feedback
+{% endblock %}
+{% block css_block %}
+
+{% endblock %}
+{% block body_block %}
+      <form method="POST">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-primary">Send Feedback</button>
+    </form>
+{% endblock %}
+
